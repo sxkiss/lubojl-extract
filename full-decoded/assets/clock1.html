@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Clock Demo</title>
+    <style>
+        body {
+          background-color: transparent;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh; /* 将 body 设置为视口的高度，实现垂直居中 */
+          font-kerning: normal;
+        }
+
+        .clock {
+          text-align: center;
+          font-family: emoji;
+          color: rgba(0, 0, 0, 0.98);
+          text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .time {
+          margin-bottom: 10px;
+          font-size: 18vw;
+        }
+
+       .time span{
+          padding:0px 12px;
+        }
+
+
+        .date {
+          color: rgba(0, 0, 0, 0.98);
+          font-size: 8vw;
+        }
+    </style>
+</head>
+<body>
+<div class="clock">
+    <div class="time">
+        <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+    </div>
+    <div class="date">
+        <span id="currentDate">0000.00.00</span>
+        <span id="currentDay">星期一</span>
+    </div>
+</div>
+
+<script>
+    function updateClock() {
+      var now = new Date();
+
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+
+      var day = now.getDate();
+      var month = now.getMonth() + 1; // 注意月份从0开始，所以要加1
+      var year = now.getFullYear();
+
+      var daysOfWeek = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+      var dayOfWeek = daysOfWeek[now.getDay()];
+
+      // 格式化为两位数
+      hours = padZero(hours);
+      minutes = padZero(minutes);
+      seconds = padZero(seconds);
+      month = padZero(month);
+      day = padZero(day);
+
+      // 更新时分秒
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+
+      // 更新日期和星期
+      document.getElementById("currentDate").textContent = year + "." + month + "." + day  ;
+      document.getElementById("currentDay").textContent = dayOfWeek;
+    }
+
+    function padZero(num) {
+      return (num < 10 ? "0" : "") + num;
+    }
+
+    // 每秒更新一次时钟
+    setInterval(updateClock, 1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<style>
+    body {
+      color: #fff;
+      /* background-color: transparent; */
+      background-color: transparent;
+      margin: 0;
+      margin-right: 10px;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    @media screen and (prefers-color-scheme: dark) {
+      body {
+        color: #59f6fb;
+        background-color: #1c1b1e;
+      }
+    }
+    .digital {
+        position: relative;
+        width: 26px;
+        height: 46px;
+      margin-left: 10px;
+        transform: skew(-6deg);
+    }
+    .digital span {
+        position: absolute;
+        /* border-radius: 50vh; */
+        box-sizing: border-box;
+    }
+    .digital .c1,
+    .digital .c2,
+    .digital .c3 {
+        height: 0;
+        width: 28px;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+    }
+    .digital .c1 {
+        top: 0;
+        left: 0;
+        border-top: 6px solid currentColor;
+    }
+    .digital .c2 {
+        top: 50%;
+        left: -1px;
+        margin-top: -1px;
+    }
+    .digital .c2:before,
+    .digital .c2:after {
+        content: "";
+        height: 0;
+        width: 26px;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        box-sizing: border-box;
+    }
+    .digital .c2:before {
+        position: absolute;
+        top: 2px;
+        left: -3px;
+        border-bottom: 2px solid currentColor;
+    }
+    .digital .c2:after {
+        position: absolute;
+        top: 4px;
+        left: -3px;
+        border-top: 2px solid currentColor;
+    }
+    .digital .c3 {
+        bottom: -5px;
+        left: 0;
+        border-bottom: 6px solid currentColor;
+    }
+    .digital .l1,
+    .digital .l2 {
+        height: 21px;
+        width: 0;
+        left: 0;
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid transparent;
+        border-left: 6px solid currentColor;
+    }
+    .digital .l1 {
+        top: 3px;
+        border-top-width: 6px;
+    }
+    .digital .l2 {
+        top: 28px;
+        border-bottom-width: 6px;
+    }
+    .digital .r1,
+    .digital .r2 {
+        height: 21px;
+        width: 0;
+        right: -2px;
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid transparent;
+        border-right: 6px solid currentColor;
+    }
+    .digital .r1 {
+        top: 3px;
+        border-top-width: 7px;
+    }
+    .digital .r2 {
+        top: 28px;
+        border-bottom-width: 7px;
+    }
+
+    .digital_1 .c1,
+    .digital_1 .c2,
+    .digital_1 .c3,
+    .digital_1 .l1,
+    .digital_1 .l2,
+    .digital_2 .l1,
+    .digital_2 .r2,
+    .digital_3 .l1,
+    .digital_3 .l2,
+    .digital_4 .c1,
+    .digital_4 .c3,
+    .digital_4 .l2,
+    .digital_5 .l2,
+    .digital_5 .r1,
+    .digital_6 .r1,
+    .digital_7 .c2,
+    .digital_7 .c3,
+    .digital_7 .l1,
+    .digital_7 .l2,
+    .digital_9 .l2,
+    .digital_0 .c2 {
+        animation: changeDigital 50ms 0ms 1 ease-in forwards;
+    }
+
+    @keyframes changeDigital {
+        form {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+
+    .clock {
+      position: relative;
+      /* left: -10px; */
+      display: flex;
+      justify-content: center;
+      padding-top: 20px;
+      transform: scale(1.1);
+    }
+    .gap {
+      height: 46px;
+      padding-left: 10px;
+      font-size: 50px;
+      font-weight: bold;
+      line-height: 0.8;
+      transform: skew(-6deg);
+    }
+    /* .date {
+      padding: 0 20px;
+      position: relative;
+      left: -10px;
+      margin-left: 34px;
+      margin-top: 30px;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 24px;
+    } */
+    .date {
+      height: 60px;
+      width: 100%;
+      position: relative;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 24px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .ab{
+     position: absolute;
+      top: 30px;
+      line-height: 38px;
+      height: 38px;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      /* justify-content: space-around; */
+    }
+    #currentDate {
+      flex-shrink: 0;
+      line-height: 38px;
+    }
+    #currentDay{
+      position: relative;
+      flex-shrink: 0;
+      line-height: 38px;
+      margin-left: 12px;
+    }
+    /* #currentDay::before{
+      content: '';
+      position: absolute;
+      left: -10px;
+      width: 2px;
+      height: 32px;
+      top: 3px;
+      background: rgba(255, 255, 255, 0.95);
+    } */
+</style>
+<div style="display: flex; flex-direction: column;align-items: center; justify-content: center; padding: 27px 65px 39px 53px ; border-radius: 12px; background-color: rgba(0, 0, 0, 0.5);">
+    <div class="clock">
+        <div class="digital digital_0">
+            <span class="c1"></span>
+            <span class="c2"></span>
+            <span class="c3"></span>
+            <span class="l1"></span>
+            <span class="l2"></span>
+            <span class="r1"></span>
+            <span class="r2"></span>
+        </div>
+        <div class="digital digital_0">
+            <span class="c1"></span>
+            <span class="c2"></span>
+            <span class="c3"></span>
+            <span class="l1"></span>
+            <span class="l2"></span>
+            <span class="r1"></span>
+            <span class="r2"></span>
+        </div>
+        <div class="gap">:</div>
+        <div class="digital digital_0">
+            <span class="c1"></span>
+            <span class="c2"></span>
+            <span class="c3"></span>
+            <span class="l1"></span>
+            <span class="l2"></span>
+            <span class="r1"></span>
+            <span class="r2"></span>
+        </div>
+        <div class="digital digital_0">
+            <span class="c1"></span>
+            <span class="c2"></span>
+            <span class="c3"></span>
+            <span class="l1"></span>
+            <span class="l2"></span>
+            <span class="r1"></span>
+            <span class="r2"></span>
+        </div>
+        <div class="gap">:</div>
+        <div class="digital digital_0">
+            <span class="c1"></span>
+            <span class="c2"></span>
+            <span class="c3"></span>
+            <span class="l1"></span>
+            <span class="l2"></span>
+            <span class="r1"></span>
+            <span class="r2"></span>
+        </div>
+        <div class="digital digital_0">
+            <span class="c1"></span>
+            <span class="c2"></span>
+            <span class="c3"></span>
+            <span class="l1"></span>
+            <span class="l2"></span>
+            <span class="r1"></span>
+            <span class="r2"></span>
+        </div>
+    </div>
+    <div class="date">
+        <div class="ab">
+            <div id="currentDate">0000-00-00</div>
+            <div id="currentDay"> 星期一</div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    var s1 = document.getElementsByClassName("digital")[5],
+        s2 = document.getElementsByClassName("digital")[4],
+        m1 = document.getElementsByClassName("digital")[3],
+        m2 = document.getElementsByClassName("digital")[2],
+        h1 = document.getElementsByClassName("digital")[1],
+        h2 = document.getElementsByClassName("digital")[0];
+    function padZero(num) {
+      return (num < 10 ? "0" : "") + num;
+    }
+    setInterval(function(){
+      var date = new Date();
+      var day = date.getDate();
+      var month = date.getMonth() + 1; // 注意月份从0开始，所以要加1
+      var year = date.getFullYear();
+
+      var daysOfWeek = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+      var dayOfWeek = daysOfWeek[date.getDay()];
+      month = padZero(month);
+      day = padZero(day);
+      var h = date.getHours();
+      var m = date.getMinutes();
+      var s = date.getSeconds();
+
+      // 更新日期和星期
+      document.getElementById("currentDate").textContent = year + "-" + month + "-" + day  ;
+      document.getElementById("currentDay").textContent =  dayOfWeek;
+
+      if (h < 10) {
+        h1.className = 'digital digital_' + h;
+        h2.className = 'digital digital_0';
+      } else {
+        h1.className = 'digital digital_' + parseInt(h%10);
+        h2.className = 'digital digital_' + parseInt(h/10);
+      }
+      if (m < 10) {
+        m1.className = 'digital digital_' + m;
+        m2.className = 'digital digital_0';
+      } else {
+        m1.className = 'digital digital_' + parseInt(m%10);
+        m2.className = 'digital digital_' + parseInt(m/10);
+      }
+      if (s < 10) {
+        s1.className = 'digital digital_' + s;
+        s2.className = 'digital digital_0';
+      } else {
+        s1.className = 'digital digital_' + parseInt(s%10);
+        s2.className = 'digital digital_' + parseInt(s/10);
+      }
+    }, 1000)
+</script>
+<script src='jquery.min.js'></script>
+<script type="text/javascript">
+    $(function () {
+      setTimeout(function() {
+        window.location.href = window.location.href
+      },1000*60*60*3);
+    })
+</script>
+</body>
+</html>
