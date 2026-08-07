@@ -8,6 +8,6 @@ public class RecordSetAiManActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record_set_ai_man);
-        // TODO: Implement ONNX Runtime + RVM for portrait matting + PAG animation
+        // TODO: Implement ONNX RVM + PAG animation for AI virtual host
     }
 }
