@@ -1,0 +1,13 @@
+package com.clement.livetools.ui.activity;
+
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class RecordSetAiManActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_record_set_ai_man);
+        // TODO: Implement ONNX Runtime + RVM for portrait matting + PAG animation
+    }
+}
