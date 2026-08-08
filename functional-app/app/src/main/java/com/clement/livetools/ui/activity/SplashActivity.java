@@ -1,21 +1,28 @@
+/*
+ * SplashActivity.java
+ * 開屏活動 - 完全匹配原版功能
+ * SOLID: Single Responsibility
+ * KISS: 保持簡單
+ */
+
 package com.clement.livetools.ui.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends Activity {
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
-        // 3秒后跳转到HomeActivity（简化版）
+        
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(this, HomeActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(this, LoginActivity.class));
             finish();
-        }, 3000);
+        }, 2000);
     }
 }

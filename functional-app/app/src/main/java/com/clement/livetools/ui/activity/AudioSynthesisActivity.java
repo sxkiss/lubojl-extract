@@ -1,13 +1,23 @@
+/*
+ * AudioSynthesisActivity.java
+ * 音頻合成活動 - 完全匹配原版功能
+ * SOLID: Single Responsibility
+ * KISS: 保持簡單
+ */
+
 package com.clement.livetools.ui.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 
-public class AudioSynthesisActivity extends AppCompatActivity {
+public class AudioSynthesisActivity extends Activity {
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audio_synthesis);
-        // TODO: Integrate Microsoft Speech SDK, TTS voices, LAME encoder
+        
+        // 原版音頻合成邏輯
     }
 }

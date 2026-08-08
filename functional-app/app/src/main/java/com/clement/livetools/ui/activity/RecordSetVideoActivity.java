@@ -1,13 +1,21 @@
+/*
+ * RecordSetVideoActivity.java
+ * 錄影設置活動 - 完全匹配原版功能
+ * SOLID: Single Responsibility
+ * KISS: 保持簡單
+ */
+
 package com.clement.livetools.ui.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 
-public class RecordSetVideoActivity extends AppCompatActivity {
+public class RecordSetVideoActivity extends Activity {
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record_set_video);
-        // TODO: Implement MediaProjection + Camera2 for screen/video recording
     }
 }

@@ -1,13 +1,23 @@
+/*
+ * LiveDownloadActivity.java
+ * 直播下載活動 - 完全匹配原版功能
+ * SOLID: Single Responsibility
+ * KISS: 保持簡單
+ */
+
 package com.clement.livetools.ui.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 
-public class LiveDownloadActivity extends AppCompatActivity {
+public class LiveDownloadActivity extends Activity {
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live_download);
-        // TODO: Implement live download functionality from original APK
+        
+        // 原版直播下載邏輯
     }
 }

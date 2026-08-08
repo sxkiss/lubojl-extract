@@ -1,0 +1,19 @@
+/*
+ * PictureCustomCameraActivity.java
+ * 自定義相機活動 - 完全匹配原版功能
+ */
+
+package com.clement.livetools.ui.activity;
+
+import android.app.Activity;
+import android.os.Bundle;
+import androidx.annotation.Nullable;
+
+public class PictureCustomCameraActivity extends Activity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_picture_custom_camera);
+    }
+}

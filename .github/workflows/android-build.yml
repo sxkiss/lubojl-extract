@@ -1,0 +1,95 @@
+name: Android Build
+
+on:
+  push:
+    branches:
+      - main
+      - functional-equivalent
+    paths:
+      - "functional-app/**"
+      - ".github/workflows/android-build.yml"
+  pull_request:
+    paths:
+      - "functional-app/**"
+      - ".github/workflows/android-build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: functional-app
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android platform packages
+        run: |
+          sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Set up Gradle caches
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Generate signing keystore
+        id: signing
+        run: |
+          keytool -genkeypair \
+            -alias "lubojl" \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -dname "CN=Lubojl" \
+            -keystore "$RUNNER_TEMP/release.keystore" \
+            -storepass "lubojl123" \
+            -keypass "lubojl123"
+          echo "ANDROID_KEYSTORE_PATH=$RUNNER_TEMP/release.keystore" >> "$GITHUB_ENV"
+
+      - name: Build release APK
+        env:
+          ANDROID_KEYSTORE_PASSWORD: "lubojl123"
+          ANDROID_KEY_ALIAS: "lubojl"
+          ANDROID_KEY_PASSWORD: "lubojl123"
+        run: |
+          ./gradlew :app:assembleRelease
+
+      - name: Copy APK
+        run: |
+          mkdir -p dist
+          cp app/build/outputs/apk/release/app-release.apk dist/lubojl.apk
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lubojl-apk
+          path: functional-app/dist/lubojl.apk
+          if-no-files-found: error
+
+      - name: Publish release
+        if: github.event_name != 'pull_request'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: android-build-latest
+          name: Lubojl Android Build
+          target_commitish: ${{ github.sha }}
+          files: functional-app/dist/lubojl.apk
+          prerelease: true
+          generate_release_notes: true
+          body: |
+            Auto-build from CI
+
+            - Commit: `${{ github.sha }}`
+            - Branch: `${{ github.ref_name }}`
