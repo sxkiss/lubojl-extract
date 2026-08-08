@@ -57,6 +57,10 @@
 - [x] AudioSelectActivity — 音頻選擇（MediaStore 掃描 + 點擊選擇 + 返回結果）
 
 ### 其他
+- [x] Socks5ProxyService — Socks5 代理服務（實際連接 + 停止按鈕 + 通知更新）
+- [x] BaseWebViewActivity — WebView 容器（完整實現 + 返回導航）
+- [x] SetWebViewBaseDialogActivity — WebView 設置（URL + JS/縮放/存儲開關）
+- [x] PushInfoSetActivity — 智能回復（關鍵詞匹配 + 回復內容）+ 語音腳本管理
 - [x] DownloadInstallerProvider — APK 下載安裝 Provider
 - [x] BaseWebViewActivity — WebView 容器
 
@@ -111,7 +115,7 @@
 | 本地安裝 | ✅ 可安裝 |
 | APP 啟動 | ✅ 不閃退 |
 | 卡密驗證 | ✅ 服務器對接完成 |
-| 功能完整性 | 🔧 約 85%（核心功能已實現） |
+| 功能完整性 | 🔧 約 90%（核心功能已實現） |
 | UI 完整性 | 🔧 約 80%（主要頁面已完成） |
 
 ---
@@ -124,7 +128,7 @@
 | Layout XML | 34 個 |
 | Drawable | 4 個 |
 | XML 配置 | 3 個（network_security_config 等） |
-| 總代碼行數 | ~2,700 行 |
+| 總代碼行數 | ~3,000 行 |
 
 ### 主要模塊代碼量
 | 模塊 | 行數 | 狀態 |
