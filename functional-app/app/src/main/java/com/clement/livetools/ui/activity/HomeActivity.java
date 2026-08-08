@@ -56,6 +56,10 @@ public class HomeActivity extends Activity {
         findViewById(R.id.item_live_web).setOnClickListener(v ->
                 startActivity(new Intent(this, RecordSetWebActivity.class)));
 
+        // 推流直播
+        findViewById(R.id.item_push_live).setOnClickListener(v ->
+                startActivity(new Intent(this, PushMainActivity.class)));
+
         // 设置按钮
         findViewById(R.id.btn_settings).setOnClickListener(v ->
                 startActivity(new Intent(this, PushInfoSetActivity.class)));

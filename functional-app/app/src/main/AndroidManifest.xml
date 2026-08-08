@@ -48,6 +48,7 @@
         <activity android:name="com.clement.livetools.ui.activity.HomeActivity"/>
         <activity android:name="com.clement.livetools.ui.activity.PushInfoSetActivity"/>
         <activity android:name="com.clement.livetools.ui.activity.RecordSetWebActivity"/>
+        <activity android:name="com.clement.livetools.ui.activity.PushMainActivity"/>
         <activity android:name="com.clement.livetools.ui.activity.LiveDownloadActivity"/>
         <activity android:name="com.clement.livetools.ui.activity.AudioLibraryActivity"/>
         <activity android:name="com.clement.livetools.ui.activity.AudioRecordActivity"/>
