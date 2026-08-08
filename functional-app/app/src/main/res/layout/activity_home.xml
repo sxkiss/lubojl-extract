@@ -5,56 +5,36 @@
     android:orientation="vertical"
     android:background="#F5F5F5">
 
-    <!-- 頂部標題欄 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="#FF6200EE"
         android:gravity="center_vertical"
         android:paddingHorizontal="16dp">
-
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="鹿播精灵"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
-
-        <ImageButton
-            android:id="@+id/btn_settings"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="鹿播精灵"
+            android:textColor="#FFFFFF" android:textSize="20sp" android:textStyle="bold"/>
+        <ImageButton android:id="@+id/btn_settings"
+            android:layout_width="40dp" android:layout_height="40dp"
             android:src="@android:drawable/ic_menu_manage"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="设置"/>
+            android:background="?attr/selectableItemBackgroundBorderless"/>
     </LinearLayout>
 
-    <!-- 功能網格 -->
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="12dp">
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:padding="12dp">
+        <GridLayout android:id="@+id/grid_features"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:columnCount="3" android:useDefaultMargins="true">
 
-        <GridLayout
-            android:id="@+id/grid_features"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnCount="3"
-            android:useDefaultMargins="true">
-
-            <!-- 第一行 -->
             <LinearLayout android:id="@+id/item_live_download"
                 android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_columnWeight="1" android:orientation="vertical"
                 android:gravity="center" android:padding="16dp"
                 android:background="@drawable/item_bg" android:layout_margin="4dp">
-                <ImageView android:layout_width="48dp" android:layout_height="48dp"
-                    android:src="@android:drawable/ic_media_play"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="直播录制" android:textSize="14sp" android:layout_marginTop="8dp"/>
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_media_play"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="直播录制" android:textSize="14sp" android:layout_marginTop="8dp"/>
             </LinearLayout>
 
             <LinearLayout android:id="@+id/item_screen_record"
@@ -62,10 +42,8 @@
                 android:layout_columnWeight="1" android:orientation="vertical"
                 android:gravity="center" android:padding="16dp"
                 android:background="@drawable/item_bg" android:layout_margin="4dp">
-                <ImageView android:layout_width="48dp" android:layout_height="48dp"
-                    android:src="@android:drawable/ic_menu_camera"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="屏幕录制" android:textSize="14sp" android:layout_marginTop="8dp"/>
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_camera"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="屏幕录制" android:textSize="14sp" android:layout_marginTop="8dp"/>
             </LinearLayout>
 
             <LinearLayout android:id="@+id/item_ai_anchor"
@@ -73,22 +51,17 @@
                 android:layout_columnWeight="1" android:orientation="vertical"
                 android:gravity="center" android:padding="16dp"
                 android:background="@drawable/item_bg" android:layout_margin="4dp">
-                <ImageView android:layout_width="48dp" android:layout_height="48dp"
-                    android:src="@android:drawable/ic_menu_myplaces"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="AI虚拟主播" android:textSize="14sp" android:layout_marginTop="8dp"/>
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_myplaces"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AI虚拟主播" android:textSize="14sp" android:layout_marginTop="8dp"/>
             </LinearLayout>
 
-            <!-- 第二行 -->
             <LinearLayout android:id="@+id/item_audio_record"
                 android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_columnWeight="1" android:orientation="vertical"
                 android:gravity="center" android:padding="16dp"
                 android:background="@drawable/item_bg" android:layout_margin="4dp">
-                <ImageView android:layout_width="48dp" android:layout_height="48dp"
-                    android:src="@android:drawable/ic_btn_speak_now"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="音频录制" android:textSize="14sp" android:layout_marginTop="8dp"/>
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_btn_speak_now"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="音频录制" android:textSize="14sp" android:layout_marginTop="8dp"/>
             </LinearLayout>
 
             <LinearLayout android:id="@+id/item_tts"
@@ -96,10 +69,8 @@
                 android:layout_columnWeight="1" android:orientation="vertical"
                 android:gravity="center" android:padding="16dp"
                 android:background="@drawable/item_bg" android:layout_margin="4dp">
-                <ImageView android:layout_width="48dp" android:layout_height="48dp"
-                    android:src="@android:drawable/ic_lock_silent_mode_off"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="语音合成" android:textSize="14sp" android:layout_marginTop="8dp"/>
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_lock_silent_mode_off"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="语音合成" android:textSize="14sp" android:layout_marginTop="8dp"/>
             </LinearLayout>
 
             <LinearLayout android:id="@+id/item_music"
@@ -107,22 +78,17 @@
                 android:layout_columnWeight="1" android:orientation="vertical"
                 android:gravity="center" android:padding="16dp"
                 android:background="@drawable/item_bg" android:layout_margin="4dp">
-                <ImageView android:layout_width="48dp" android:layout_height="48dp"
-                    android:src="@android:drawable/ic_lock_silent_mode_off"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="音乐播放" android:textSize="14sp" android:layout_marginTop="8dp"/>
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_lock_silent_mode_off"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="音乐播放" android:textSize="14sp" android:layout_marginTop="8dp"/>
             </LinearLayout>
 
-            <!-- 第三行 -->
             <LinearLayout android:id="@+id/item_qrcode"
                 android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_columnWeight="1" android:orientation="vertical"
                 android:gravity="center" android:padding="16dp"
                 android:background="@drawable/item_bg" android:layout_margin="4dp">
-                <ImageView android:layout_width="48dp" android:layout_height="48dp"
-                    android:src="@android:drawable/ic_menu_search"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="二维码扫描" android:textSize="14sp" android:layout_marginTop="8dp"/>
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_search"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="二维码扫描" android:textSize="14sp" android:layout_marginTop="8dp"/>
             </LinearLayout>
 
             <LinearLayout android:id="@+id/item_proxy"
@@ -130,10 +96,8 @@
                 android:layout_columnWeight="1" android:orientation="vertical"
                 android:gravity="center" android:padding="16dp"
                 android:background="@drawable/item_bg" android:layout_margin="4dp">
-                <ImageView android:layout_width="48dp" android:layout_height="48dp"
-                    android:src="@android:drawable/ic_menu_share"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Socks5代理" android:textSize="14sp" android:layout_marginTop="8dp"/>
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_share"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Socks5代理" android:textSize="14sp" android:layout_marginTop="8dp"/>
             </LinearLayout>
 
             <LinearLayout android:id="@+id/item_camera"
@@ -141,22 +105,17 @@
                 android:layout_columnWeight="1" android:orientation="vertical"
                 android:gravity="center" android:padding="16dp"
                 android:background="@drawable/item_bg" android:layout_margin="4dp">
-                <ImageView android:layout_width="48dp" android:layout_height="48dp"
-                    android:src="@android:drawable/ic_menu_gallery"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="摄像头录制" android:textSize="14sp" android:layout_marginTop="8dp"/>
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_gallery"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="摄像头录制" android:textSize="14sp" android:layout_marginTop="8dp"/>
             </LinearLayout>
 
-            <!-- 第四行 -->
             <LinearLayout android:id="@+id/item_live_web"
                 android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_columnWeight="1" android:orientation="vertical"
                 android:gravity="center" android:padding="16dp"
                 android:background="@drawable/item_bg" android:layout_margin="4dp">
-                <ImageView android:layout_width="48dp" android:layout_height="48dp"
-                    android:src="@android:drawable/ic_menu_view"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="直播网页" android:textSize="14sp" android:layout_marginTop="8dp"/>
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_view"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="直播网页" android:textSize="14sp" android:layout_marginTop="8dp"/>
             </LinearLayout>
 
             <LinearLayout android:id="@+id/item_push_live"
@@ -164,12 +123,9 @@
                 android:layout_columnWeight="1" android:orientation="vertical"
                 android:gravity="center" android:padding="16dp"
                 android:background="@drawable/item_bg" android:layout_margin="4dp">
-                <ImageView android:layout_width="48dp" android:layout_height="48dp"
-                    android:src="@android:drawable/ic_media_play"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="推流直播" android:textSize="14sp" android:layout_marginTop="8dp"/>
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_media_play"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="推流直播" android:textSize="14sp" android:layout_marginTop="8dp"/>
             </LinearLayout>
-
-            <LinearLayout android:id="@+id/item_live_web"
+        </GridLayout>
     </ScrollView>
 </LinearLayout>
