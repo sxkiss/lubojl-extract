@@ -26,16 +26,60 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="12dp">
-        <EditText android:id="@+id/et_url"
-            android:layout_width="0dp" android:layout_height="48dp"
-            android:layout_weight="1" android:hint="粘贴直播地址 (RTMP/HLS/FLV)"
-            android:inputType="textUri" android:singleLine="true"
-            android:background="@drawable/item_bg" android:paddingHorizontal="12dp"/>
-        <Button android:id="@+id/btn_parse"
-            android:layout_width="80dp" android:layout_height="48dp"
-            android:text="解析" android:layout_marginStart="8dp"/>
+
+        <!-- 推流类型选择 -->
+        <RadioGroup android:id="@+id/rg_live_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/rb_remote"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="远程直播" android:checked="true"/>
+            <RadioButton android:id="@+id/rb_local"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="本地文件"/>
+            <RadioButton android:id="@+id/rb_obs"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="OBS推流"/>
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+            <EditText android:id="@+id/et_url"
+                android:layout_width="0dp" android:layout_height="44dp"
+                android:layout_weight="1" android:hint="粘贴直播地址 (RTMP/HLS/FLV)"
+                android:inputType="textUri" android:singleLine="true"
+                android:background="@drawable/item_bg" android:paddingHorizontal="12dp"/>
+            <Button android:id="@+id/btn_parse"
+                android:layout_width="70dp" android:layout_height="44dp"
+                android:text="解析" android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+        <!-- 视频名称 -->
+        <EditText android:id="@+id/et_video_name"
+            android:layout_width="match_parent" android:layout_height="40dp"
+            android:hint="视频名称" android:text="直播录制"
+            android:background="@drawable/item_bg" android:paddingHorizontal="12dp"
+            android:layout_marginTop="8dp"/>
+
+        <!-- 录制格式 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="格式:" android:textSize="13sp"/>
+            <Spinner android:id="@+id/sp_record_format"
+                android:layout_width="120dp" android:layout_height="36dp"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
     </LinearLayout>
 
     <!-- 视频预览 -->
