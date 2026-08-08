@@ -36,65 +36,88 @@
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="Socks5 代理" android:textSize="16sp" android:textStyle="bold"
                 android:layout_marginBottom="8dp"/>
-
             <EditText android:id="@+id/et_proxy_host"
                 android:layout_width="match_parent" android:layout_height="44dp"
                 android:hint="代理地址" android:inputType="text"
                 android:background="@drawable/item_bg" android:paddingHorizontal="12dp"/>
-
             <EditText android:id="@+id/et_proxy_port"
                 android:layout_width="match_parent" android:layout_height="44dp"
                 android:hint="端口" android:inputType="number" android:text="1080"
-                android:background="@drawable/item_bg" android:paddingHorizontal="12dp"
-                android:layout_marginTop="8dp"/>
-
+                android:background="@drawable/item_bg" android:paddingHorizontal="12dp" android:layout_marginTop="8dp"/>
             <EditText android:id="@+id/et_proxy_user"
                 android:layout_width="match_parent" android:layout_height="44dp"
                 android:hint="用户名（可选）" android:inputType="text"
-                android:background="@drawable/item_bg" android:paddingHorizontal="12dp"
-                android:layout_marginTop="8dp"/>
-
+                android:background="@drawable/item_bg" android:paddingHorizontal="12dp" android:layout_marginTop="8dp"/>
             <EditText android:id="@+id/et_proxy_pass"
                 android:layout_width="match_parent" android:layout_height="44dp"
                 android:hint="密码（可选）" android:inputType="textPassword"
-                android:background="@drawable/item_bg" android:paddingHorizontal="12dp"
-                android:layout_marginTop="8dp"/>
+                android:background="@drawable/item_bg" android:paddingHorizontal="12dp" android:layout_marginTop="8dp"/>
 
             <!-- 推流设置 -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="推流设置" android:textSize="16sp" android:textStyle="bold"
                 android:layout_marginTop="24dp" android:layout_marginBottom="8dp"/>
-
             <EditText android:id="@+id/et_push_url"
                 android:layout_width="match_parent" android:layout_height="44dp"
                 android:hint="推流地址 (RTMP)" android:inputType="textUri"
                 android:background="@drawable/item_bg" android:paddingHorizontal="12dp"/>
-
             <EditText android:id="@+id/et_stream_key"
                 android:layout_width="match_parent" android:layout_height="44dp"
                 android:hint="串流密钥" android:inputType="textPassword"
-                android:background="@drawable/item_bg" android:paddingHorizontal="12dp"
-                android:layout_marginTop="8dp"/>
+                android:background="@drawable/item_bg" android:paddingHorizontal="12dp" android:layout_marginTop="8dp"/>
 
-            <!-- 自动回复 -->
+            <!-- 智能回复 -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="自动回复" android:textSize="16sp" android:textStyle="bold"
+                android:text="智能回复" android:textSize="16sp" android:textStyle="bold"
                 android:layout_marginTop="24dp" android:layout_marginBottom="8dp"/>
-
             <LinearLayout
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:gravity="center_vertical">
                 <TextView android:layout_width="0dp" android:layout_height="wrap_content"
-                    android:layout_weight="1" android:text="启用自动回复"/>
+                    android:layout_weight="1" android:text="启用智能回复（关键词匹配自动回复）"/>
                 <Switch android:id="@+id/sw_auto_reply"
                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
             </LinearLayout>
 
-            <EditText android:id="@+id/et_auto_reply_text"
-                android:layout_width="match_parent" android:layout_height="80dp"
-                android:hint="自动回复内容" android:inputType="textMultiLine"
-                android:gravity="top" android:background="@drawable/item_bg"
-                android:padding="12dp" android:layout_marginTop="8dp"/>
+            <LinearLayout android:id="@+id/ll_auto_reply_settings"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:visibility="gone"
+                android:layout_marginTop="8dp">
+                <EditText android:id="@+id/et_auto_reply_keywords"
+                    android:layout_width="match_parent" android:layout_height="44dp"
+                    android:hint="触发关键词（逗号分隔）" android:inputType="text"
+                    android:text="你好,在吗,主播"
+                    android:background="@drawable/item_bg" android:paddingHorizontal="12dp"/>
+                <EditText android:id="@+id/et_auto_reply_text"
+                    android:layout_width="match_parent" android:layout_height="80dp"
+                    android:hint="回复内容" android:inputType="textMultiLine"
+                    android:gravity="top" android:background="@drawable/item_bg"
+                    android:padding="12dp" android:layout_marginTop="8dp"/>
+            </LinearLayout>
+
+            <!-- 语音脚本 -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="语音脚本" android:textSize="16sp" android:textStyle="bold"
+                android:layout_marginTop="24dp" android:layout_marginBottom="8dp"/>
+
+            <LinearLayout android:id="@+id/ll_voice_script"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView android:id="@+id/tv_voice_count"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="已添加 0 条语音脚本" android:textSize="13sp" android:textColor="#666666"/>
+                <LinearLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginTop="8dp">
+                    <Button android:id="@+id/btn_add_voice"
+                        android:layout_width="0dp" android:layout_height="40dp"
+                        android:layout_weight="1" android:text="添加语音脚本" android:textSize="13sp"/>
+                    <Button android:id="@+id/btn_manage_voice"
+                        android:layout_width="0dp" android:layout_height="40dp"
+                        android:layout_weight="1" android:text="管理脚本" android:textSize="13sp"
+                        android:layout_marginStart="8dp"/>
+                </LinearLayout>
+            </LinearLayout>
 
             <Button android:id="@+id/btn_save"
                 android:layout_width="match_parent" android:layout_height="48dp"
