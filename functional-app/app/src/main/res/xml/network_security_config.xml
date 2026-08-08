@@ -2,6 +2,5 @@
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">apk.sxkiss.top</domain>
-        <domain includeSubdomains="true">ht.xjjvip.cn</domain>
     </domain-config>
 </network-security-config>

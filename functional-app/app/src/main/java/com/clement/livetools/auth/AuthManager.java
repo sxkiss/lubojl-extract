@@ -21,7 +21,7 @@ import java.net.URLEncoder;
 public class AuthManager {
 
     private static final String APP_ID = "20230903";
-    private static final String SERVER_URL = "http://apk.sxkiss.top:8089/AppEn.php";
+    private static final String SERVER_URL = "http://apk.sxkiss.top/AppEn.php";
 
     private final Context context;
 
