@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.clement.livetools.R;
+import com.clement.livetools.qrcode.ui.CaptureActivity;
 
 public class HomeActivity extends Activity {
 

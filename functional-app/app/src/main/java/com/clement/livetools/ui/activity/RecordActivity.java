@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.clement.livetools.R;
+import com.clement.livetools.service.ScreenRecordService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -59,11 +60,11 @@ public class RecordActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_SCREEN_CAPTURE && resultCode == RESULT_OK && data != null) {
-            startRecording(data);
+            startRecording(resultCode, data);
         }
     }
 
-    private void startRecording(Intent data) {
+    private void startRecording(int resultCode, Intent data) {
         Intent serviceIntent = new Intent(this, ScreenRecordService.class);
         serviceIntent.putExtra("result_code", resultCode);
         serviceIntent.putExtra("data", data);
