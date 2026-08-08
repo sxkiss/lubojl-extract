@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="#F5F5F5">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+        android:background="#FF6200EE" android:gravity="center_vertical" android:paddingHorizontal="16dp">
+        <ImageButton android:id="@+id/btn_back" android:layout_width="40dp" android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_revert" android:background="?attr/selectableItemBackgroundBorderless"/>
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="直播网页设置" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"/>
+    </LinearLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:padding="16dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="网页地址"/>
+            <EditText android:id="@+id/et_web_url" android:layout_width="match_parent" android:layout_height="44dp"
+                android:hint="输入直播网页URL" android:inputType="textUri" android:text="https://"
+                android:background="@drawable/item_bg" android:paddingHorizontal="12dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="自动刷新间隔(秒)" android:layout_marginTop="16dp"/>
+            <EditText android:id="@+id/et_refresh_interval" android:layout_width="match_parent" android:layout_height="44dp"
+                android:hint="30" android:inputType="number" android:text="30"
+                android:background="@drawable/item_bg" android:paddingHorizontal="12dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="16dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="自动刷新"/>
+                <Switch android:id="@+id/sw_auto_refresh" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="8dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="桌面模式"/>
+                <Switch android:id="@+id/sw_desktop_mode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"/>
+            </LinearLayout>
+            <Button android:id="@+id/btn_open_web" android:layout_width="match_parent" android:layout_height="48dp"
+                android:text="打开网页" android:layout_marginTop="16dp"/>
+            <Button android:id="@+id/btn_save" android:layout_width="match_parent" android:layout_height="48dp"
+                android:text="保存设置" android:layout_marginTop="8dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

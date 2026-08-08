@@ -3,11 +3,10 @@ package com.clement.livetools.ui.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 
 import com.clement.livetools.R;
+import com.clement.livetools.base.ui.BaseWebViewActivity;
 import com.clement.livetools.qrcode.ui.CaptureActivity;
 
 public class HomeActivity extends Activity {
@@ -52,6 +51,10 @@ public class HomeActivity extends Activity {
         // 摄像头录制
         findViewById(R.id.item_camera).setOnClickListener(v ->
                 startActivity(new Intent(this, RecordSetCameraActivity.class)));
+
+        // 直播网页 (WebView)
+        findViewById(R.id.item_live_web).setOnClickListener(v ->
+                startActivity(new Intent(this, RecordSetWebActivity.class)));
 
         // 设置按钮
         findViewById(R.id.btn_settings).setOnClickListener(v ->

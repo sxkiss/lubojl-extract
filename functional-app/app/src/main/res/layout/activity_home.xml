@@ -146,6 +146,18 @@
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:text="摄像头录制" android:textSize="14sp" android:layout_marginTop="8dp"/>
             </LinearLayout>
+
+            <!-- 第四行 -->
+            <LinearLayout android:id="@+id/item_live_web"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_columnWeight="1" android:orientation="vertical"
+                android:gravity="center" android:padding="16dp"
+                android:background="@drawable/item_bg" android:layout_margin="4dp">
+                <ImageView android:layout_width="48dp" android:layout_height="48dp"
+                    android:src="@android:drawable/ic_menu_view"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="直播网页" android:textSize="14sp" android:layout_marginTop="8dp"/>
+            </LinearLayout>
         </GridLayout>
     </ScrollView>
 </LinearLayout>
