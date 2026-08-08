@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#000000">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="AI虚拟主播"
-        android:textSize="28sp"
-        android:textColor="#00FF00"
-        android:layout_gravity="center" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="#F5F5F5">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+        android:background="#FF6200EE" android:gravity="center_vertical" android:paddingHorizontal="16dp">
+        <ImageButton android:id="@+id/btn_back" android:layout_width="40dp" android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_revert" android:background="?attr/selectableItemBackgroundBorderless"/>
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="AI虚拟主播" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"/>
+    </LinearLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:padding="16dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="虚拟人物"/>
+            <Spinner android:id="@+id/sp_character" android:layout_width="match_parent" android:layout_height="48dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AI模型" android:layout_marginTop="16dp"/>
+            <Spinner android:id="@+id/sp_model" android:layout_width="match_parent" android:layout_height="48dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="人像透明度" android:layout_marginTop="16dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <SeekBar android:id="@+id/sb_alpha" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:max="100"/>
+                <TextView android:id="@+id/tv_alpha_value" android:layout_width="50dp" android:layout_height="wrap_content" android:text="80%"/>
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="背景模糊" android:layout_marginTop="16dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <SeekBar android:id="@+id/sb_bg_blur" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:max="100"/>
+                <TextView android:id="@+id/tv_bg_blur_value" android:layout_width="50dp" android:layout_height="wrap_content" android:text="50%"/>
+            </LinearLayout>
+            <Button android:id="@+id/btn_save" android:layout_width="match_parent" android:layout_height="48dp"
+                android:text="保存" android:layout_marginTop="24dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
