@@ -20,7 +20,7 @@ import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
-import android.support.v4.media.session.MediaSessionCompat;
+import androidx.media.session.MediaSessionCompat;
 import androidx.core.app.NotificationCompat;
 
 public class MusicService extends Service {
