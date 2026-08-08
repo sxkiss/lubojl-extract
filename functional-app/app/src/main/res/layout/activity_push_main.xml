@@ -149,7 +149,8 @@
                 android:layout_width="match_parent" android:layout_height="48dp"
                 android:text="保存设置"/>
 
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            <TextView android:id="@+id/tv_version"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="说明：请在直播平台获取推流地址和密钥" android:textSize="12sp"
                 android:textColor="#999999" android:gravity="center" android:layout_marginTop="8dp"/>
         </LinearLayout>
