@@ -21,45 +21,114 @@
             android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"/>
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <TextView
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="选择声音" android:textSize="14sp" android:textColor="#666666"/>
-        <Spinner android:id="@+id/sp_voice"
-            android:layout_width="match_parent" android:layout_height="48dp"
-            android:layout_marginTop="4dp" android:layout_marginBottom="16dp"/>
-
-        <EditText android:id="@+id/et_text"
-            android:layout_width="match_parent" android:layout_height="0dp"
-            android:layout_weight="1"
-            android:hint="输入要合成的文本..."
-            android:gravity="top|start"
-            android:background="@drawable/item_bg"
-            android:padding="12dp"
-            android:textSize="16sp"
-            android:inputType="textMultiLine"/>
-
-        <TextView android:id="@+id/tv_status"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="选择声音并输入文本后点击合成"
-            android:textSize="12sp" android:textColor="#999999"
-            android:layout_marginTop="8dp"/>
+        android:layout_weight="1">
 
         <LinearLayout
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="horizontal" android:layout_marginTop="8dp">
-            <Button android:id="@+id/btn_speak"
-                android:layout_width="0dp" android:layout_height="48dp"
-                android:layout_weight="1" android:text="合成播放"/>
-            <Button android:id="@+id/btn_stop"
-                android:layout_width="0dp" android:layout_height="48dp"
-                android:layout_weight="1" android:text="停止" android:layout_marginStart="8dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 声音选择 -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="选择声音" android:textSize="14sp" android:textColor="#666666"/>
+            <Spinner android:id="@+id/sp_voice"
+                android:layout_width="match_parent" android:layout_height="48dp"
+                android:layout_marginTop="4dp"/>
+
+            <!-- 文本输入 -->
+            <EditText android:id="@+id/et_text"
+                android:layout_width="match_parent" android:layout_height="120dp"
+                android:hint="输入要合成的文本..."
+                android:gravity="top|start"
+                android:background="@drawable/item_bg"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:inputType="textMultiLine"
+                android:layout_marginTop="12dp"/>
+
+            <!-- 语速控制 -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="语速" android:textSize="14sp" android:textColor="#666666"
+                android:layout_marginTop="16dp"/>
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:layout_width="30dp" android:layout_height="wrap_content"
+                    android:text="慢" android:textSize="12sp"/>
+                <SeekBar android:id="@+id/sb_speed"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:max="100" android:progress="50"/>
+                <TextView android:layout_width="30dp" android:layout_height="wrap_content"
+                    android:text="快" android:textSize="12sp"/>
+                <TextView android:id="@+id/tv_speed_value"
+                    android:layout_width="50dp" android:layout_height="wrap_content"
+                    android:text="1.0x" android:gravity="center" android:textSize="13sp"/>
+            </LinearLayout>
+
+            <!-- 音调控制 -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="音调" android:textSize="14sp" android:textColor="#666666"
+                android:layout_marginTop="12dp"/>
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:layout_width="30dp" android:layout_height="wrap_content"
+                    android:text="低" android:textSize="12sp"/>
+                <SeekBar android:id="@+id/sb_tone"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:max="100" android:progress="50"/>
+                <TextView android:layout_width="30dp" android:layout_height="wrap_content"
+                    android:text="高" android:textSize="12sp"/>
+                <TextView android:id="@+id/tv_tone_value"
+                    android:layout_width="50dp" android:layout_height="wrap_content"
+                    android:text="1.0x" android:gravity="center" android:textSize="13sp"/>
+            </LinearLayout>
+
+            <!-- 音量控制 -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="音量" android:textSize="14sp" android:textColor="#666666"
+                android:layout_marginTop="12dp"/>
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:layout_width="30dp" android:layout_height="wrap_content"
+                    android:text="小" android:textSize="12sp"/>
+                <SeekBar android:id="@+id/sb_volume"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:max="100" android:progress="80"/>
+                <TextView android:layout_width="30dp" android:layout_height="wrap_content"
+                    android:text="大" android:textSize="12sp"/>
+                <TextView android:id="@+id/tv_volume_value"
+                    android:layout_width="50dp" android:layout_height="wrap_content"
+                    android:text="80%" android:gravity="center" android:textSize="13sp"/>
+            </LinearLayout>
+
+            <!-- 状态 -->
+            <TextView android:id="@+id/tv_status"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="选择声音并输入文本后点击合成"
+                android:textSize="12sp" android:textColor="#999999"
+                android:layout_marginTop="12dp"/>
+
+            <!-- 按钮 -->
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginTop="8dp">
+                <Button android:id="@+id/btn_speak"
+                    android:layout_width="0dp" android:layout_height="48dp"
+                    android:layout_weight="1" android:text="合成播放"/>
+                <Button android:id="@+id/btn_stop"
+                    android:layout_width="0dp" android:layout_height="48dp"
+                    android:layout_weight="1" android:text="停止" android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <Button android:id="@+id/btn_save_synth"
+                android:layout_width="match_parent" android:layout_height="48dp"
+                android:text="保存设置" android:layout_marginTop="8dp"/>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 </LinearLayout>
