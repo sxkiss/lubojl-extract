@@ -14,12 +14,10 @@ public class PicturePreviewActivity extends Activity {
         setContentView(R.layout.activity_picture_preview);
 
         ImageView ivPreview = findViewById(R.id.iv_preview);
-        TextView tvInfo = findViewById(R.id.tv_info);
 
         String path = getIntent().getStringExtra("path");
         if (path != null) {
             ivPreview.setImageBitmap(BitmapFactory.decodeFile(path));
-            tvInfo.setText(path.substring(path.lastIndexOf("/") + 1));
         }
 
         findViewById(R.id.btn_back).setOnClickListener(v -> finish());
