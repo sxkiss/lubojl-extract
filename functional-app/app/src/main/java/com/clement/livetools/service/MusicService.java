@@ -7,6 +7,7 @@
  */
 
 package com.clement.livetools.service;
+import com.clement.livetools.R;
 
 import android.app.Notification;
 import android.app.NotificationChannel;

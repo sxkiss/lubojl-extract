@@ -6,6 +6,7 @@
  */
 
 package com.clement.livetools.ui.activity;
+import com.clement.livetools.R;
 
 import android.app.Activity;
 import android.content.Intent;
