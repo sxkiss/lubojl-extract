@@ -165,7 +165,8 @@ public class LiveDownloadActivity extends Activity {
                 in.close();
                 conn.disconnect();
 
-                handler.post(() -> tvStatus.setText("下载完成: " + outputFile.getAbsolutePath() + " (" + total / 1024 + "KB)"));
+                final long finalTotal = total;
+                handler.post(() -> tvStatus.setText("下载完成: " + outputFile.getAbsolutePath() + " (" + finalTotal / 1024 + "KB)"));
             } catch (Exception e) {
                 handler.post(() -> tvStatus.setText("下载失败: " + e.getMessage()));
             }
