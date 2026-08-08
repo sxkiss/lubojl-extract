@@ -20,7 +20,6 @@ import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
-import androidx.media.session.MediaSessionCompat;
 import androidx.core.app.NotificationCompat;
 
 public class MusicService extends Service {
@@ -29,7 +28,6 @@ public class MusicService extends Service {
     private static final String NOTIFICATION_CHANNEL_NAME = "音樂播放";
 
     private MediaPlayer mediaPlayer;
-    private MediaSessionCompat mediaSession;
     private boolean isPlaying = false;
     private String currentMusicUrl;
 
@@ -135,8 +133,7 @@ public class MusicService extends Service {
     }
 
     private void initMediaSession() {
-        mediaSession = new MediaSessionCompat(this, "MusicService");
-        mediaSession.setActive(true);
+        // MediaSessionCompat removed - not required for basic playback
     }
 
     private void createNotificationChannel() {
@@ -158,9 +155,6 @@ public class MusicService extends Service {
         super.onDestroy();
         if (mediaPlayer != null) {
             mediaPlayer.release();
-        }
-        if (mediaSession != null) {
-            mediaSession.release();
         }
     }
 }
