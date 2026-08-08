@@ -43,7 +43,23 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!-- 其他活動保持原樣 -->
+        <activity android:name="com.clement.livetools.ui.activity.LoginActivity"/>
+        <activity android:name="com.clement.livetools.ui.activity.HomeActivity"/>
+        <activity android:name="com.clement.livetools.ui.activity.PushInfoSetActivity"/>
+        <activity android:name="com.clement.livetools.ui.activity.LiveDownloadActivity"/>
+        <activity android:name="com.clement.livetools.ui.activity.AudioLibraryActivity"/>
+        <activity android:name="com.clement.livetools.ui.activity.AudioRecordActivity"/>
+        <activity android:name="com.clement.livetools.ui.activity.AudioSelectActivity"/>
+        <activity android:name="com.clement.livetools.ui.activity.AudioSynthesisActivity"/>
+        <activity android:name="com.clement.livetools.ui.activity.RecordActivity"/>
+        <activity android:name="com.clement.livetools.ui.activity.RecordSetVideoActivity"/>
+        <activity android:name="com.clement.livetools.ui.activity.RecordSetAudioActivity"/>
+        <activity android:name="com.clement.livetools.ui.activity.RecordSetCameraActivity"/>
+        <activity android:name="com.clement.livetools.ui.activity.RecordSetAiManActivity"/>
+        <activity android:name="com.clement.livetools.ui.activity.SetWebViewBaseDialogActivity"/>
+        <activity android:name="com.clement.livetools.base.ui.BaseWebViewActivity"/>
+        <activity android:name="com.clement.livetools.permission.PermissionActivity"/>
+        <activity android:name="com.clement.livetools.qrcode.ui.CaptureActivity"/>
 
         <service android:name="com.clement.livetools.service.MusicService"/>
         <service android:name="com.clement.livetools.service.VoiceLibraryPlayService"/>
