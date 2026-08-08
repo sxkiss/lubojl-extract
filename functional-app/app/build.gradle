@@ -30,7 +30,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.media:media:1.6.0'
+    implementation 'androidx.media:media:1.4.0'
     implementation 'androidx.startup:startup-runtime:1.1.1'
     implementation 'androidx.emoji2:emoji2:1.2.0'
     implementation 'androidx.lifecycle:lifecycle-process:2.6.2'
