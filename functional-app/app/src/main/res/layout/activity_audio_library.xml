@@ -3,19 +3,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF">
+    android:background="#F5F5F5">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="音頻庫"
-        android:textSize="24sp"
+        android:layout_height="56dp"
+        android:background="#FF6200EE"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
+        <ImageButton android:id="@+id/btn_back"
+            android:layout_width="40dp" android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_revert"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
+        <TextView
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="音乐库"
+            android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"/>
+    </LinearLayout>
+
+    <TextView android:id="@+id/tv_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:layout_marginTop="100dp"/>
+        android:text="暂无音乐文件"
+        android:textSize="16sp" android:textColor="#999999"
+        android:visibility="gone"/>
 
-    <Button
+    <ListView android:id="@+id/list_music"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="查看音頻列表"
-        android:layout_margin="20dp"/>
+        android:layout_height="match_parent"
+        android:divider="#E0E0E0"
+        android:dividerHeight="1dp"/>
 </LinearLayout>

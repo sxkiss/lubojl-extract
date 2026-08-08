@@ -3,19 +3,63 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF">
+    android:background="#F5F5F5">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="音頻合成"
-        android:textSize="24sp"
-        android:gravity="center"
-        android:layout_marginTop="100dp"/>
+        android:layout_height="56dp"
+        android:background="#FF6200EE"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
+        <ImageButton android:id="@+id/btn_back"
+            android:layout_width="40dp" android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_revert"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
+        <TextView
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="语音合成"
+            android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"/>
+    </LinearLayout>
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="開始合成"
-        android:layout_margin="20dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="选择声音" android:textSize="14sp" android:textColor="#666666"/>
+        <Spinner android:id="@+id/sp_voice"
+            android:layout_width="match_parent" android:layout_height="48dp"
+            android:layout_marginTop="4dp" android:layout_marginBottom="16dp"/>
+
+        <EditText android:id="@+id/et_text"
+            android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="输入要合成的文本..."
+            android:gravity="top|start"
+            android:background="@drawable/item_bg"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:inputType="textMultiLine"/>
+
+        <TextView android:id="@+id/tv_status"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="选择声音并输入文本后点击合成"
+            android:textSize="12sp" android:textColor="#999999"
+            android:layout_marginTop="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="8dp">
+            <Button android:id="@+id/btn_speak"
+                android:layout_width="0dp" android:layout_height="48dp"
+                android:layout_weight="1" android:text="合成播放"/>
+            <Button android:id="@+id/btn_stop"
+                android:layout_width="0dp" android:layout_height="48dp"
+                android:layout_weight="1" android:text="停止" android:layout_marginStart="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

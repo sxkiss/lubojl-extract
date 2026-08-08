@@ -61,6 +61,8 @@
         <activity android:name="com.clement.livetools.permission.PermissionActivity"/>
         <activity android:name="com.clement.livetools.qrcode.ui.CaptureActivity"/>
 
+        <service android:name="com.clement.livetools.service.ScreenRecordService"
+            android:foregroundServiceType="mediaProjection"/>
         <service android:name="com.clement.livetools.service.MusicService"/>
         <service android:name="com.clement.livetools.service.VoiceLibraryPlayService"/>
         <service android:name="com.clement.livetools.socks5.Socks5ProxyService"/>

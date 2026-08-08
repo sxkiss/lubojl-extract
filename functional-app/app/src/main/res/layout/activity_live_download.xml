@@ -3,19 +3,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF">
+    android:background="#F5F5F5">
 
-    <TextView
+    <!-- 标题栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FF6200EE"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
+        <ImageButton android:id="@+id/btn_back"
+            android:layout_width="40dp" android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_revert"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
+        <TextView
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="直播录制"
+            android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- URL输入 -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="直播下載"
-        android:textSize="24sp"
-        android:gravity="center"
-        android:layout_marginTop="100dp"/>
+        android:orientation="horizontal"
+        android:padding="12dp">
+        <EditText android:id="@+id/et_url"
+            android:layout_width="0dp" android:layout_height="48dp"
+            android:layout_weight="1" android:hint="粘贴直播地址 (RTMP/HLS/FLV)"
+            android:inputType="textUri" android:singleLine="true"
+            android:background="@drawable/item_bg" android:paddingHorizontal="12dp"/>
+        <Button android:id="@+id/btn_parse"
+            android:layout_width="80dp" android:layout_height="48dp"
+            android:text="解析" android:layout_marginStart="8dp"/>
+    </LinearLayout>
 
-    <Button
+    <!-- 视频预览 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#000000"
+        android:layout_marginHorizontal="12dp">
+        <VideoView android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <!-- 状态和操作按钮 -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="開始下載"
-        android:layout_margin="20dp"/>
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="请输入直播地址后点击解析"
+            android:textSize="13sp" android:textColor="#666666"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button android:id="@+id/btn_record"
+                android:layout_width="0dp" android:layout_height="48dp"
+                android:layout_weight="1" android:text="开始录制"
+                android:enabled="false"/>
+            <Button android:id="@+id/btn_download"
+                android:layout_width="0dp" android:layout_height="48dp"
+                android:layout_weight="1" android:text="下载录像"
+                android:enabled="false" android:layout_marginStart="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
